@@ -650,8 +650,7 @@ private fun Launcher(activity: ComponentActivity, prefs: Prefs) {
             Screen.Contact -> callNumber(contact?.numbers?.firstOrNull().orEmpty())
             Screen.Number -> callNumber(selectedNumber)
             // As on a Nokia, the green key with nothing dialed shows the last calls.
-            Screen.Home -> if (dialed.isEmpty()) go(Screen.CallLog) else callNumber(dialed)
-            else -> callNumber(dialed)
+            else -> if (dialed.isEmpty()) go(Screen.CallLog) else callNumber(dialed)
         }
     }
 
